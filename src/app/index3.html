@@ -15,87 +15,18 @@
 
     <!-- App module -->
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="directives/placeTable.js"></script>
+    <script type="text/javascript" src="directives/placeForm.js"></script>
 </head>
 <body>
 <div class="container" ng-controller="PlacesController">
     <div class="header clearfix text-center">
         <h1 class="text-muted">Places List</h1>
     </div>
-    <div class="col col-xs-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">Places List</div>
-            <div class="panel-body">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>City</th>
-                        <th>Phone</th>
-                        <th>Street</th>
-                        <th>Building Number</th>
-                        <!--<th> Present</th>-->
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="place in places">
-                        <td>{{place.name}}</td>
-                        <td>{{place.city}}</td>
-                        <td>{{place.phone}}</td>
-                        <td>{{place.street}}</td>
-                        <td>{{place.buildingNumber}}</td>
-                        <!--<td ng-show="presentColumnVisibility"><input type="checkbox" ng-model="person.Present"></td>-->
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="panel-body">
-                <div class="col col-xs-12">
-                    <div class="panel-body">
-                        <label class="control-label"><h3>New place</h3></label>
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <label for="Name" class="col-sm-2 control-label">Name</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="Name" placeholder="Name" ng-model="newPlace.name">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="City" class="col-sm-2 control-label">City</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="City" placeholder="City" ng-model="newPlace.city">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="Phone" class="col-sm-2 control-label">Phone</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="Phone" placeholder=Phone" ng-model="newPlace.phone">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="Street" class="col-sm-2 control-label">Street</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="Street" placeholder=Street" ng-model="newPlace.street">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="buildingNumber" class="col-sm-2 control-label">Building Number</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="buildingNumber" placeholder="Building Number" ng-model="newPlace.buildingNumber">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="button" class="btn btn-default" ng-click="addPlace(newPlace)">Add</button>
-                                    <span class="text-muted" ng-click="removeItem(item)" style="cursor:pointer"> (remove)</span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!--<span>> Present Column Visibility: </span><input type="checkbox" ng-model="presentColumnVisibility">-->
-                </div>
-            </div>
-        </div>
-    </div>
+
+            <place-table></place-table>
+
+            <place-form></place-form>
 </div>
 </body>
 </html>
