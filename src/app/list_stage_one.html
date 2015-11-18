@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="workshop">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div class="container" ng-controller="ShoppingList">
+    <div class="header clearfix text-center">
+        <h1 class="text-muted">Exercise Shopping List</h1>
+    </div>
+
+    <div class="row">
+        <div class="col col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">List Controls</div>
+                <div class="panel-body">
+                    <label for="purchaseStatus" class="control-label">Status</label>
+                    <select class="form-control" id="purchaseStatus" ng-model="purchaseStatus.isBought">
+                        <option value="">All</option>
+                        <option value="false">To buy</option>
+                        <option value="true">Bought</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-xs-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">Shopping List</div>
+                <div class="panel-body">
+                    <div class="col col-xs-12">
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="item in shoppingList | filter:purchaseStatus">
+                                <input type="checkbox" ng-model="item.isBought"/>
+                                <span class="badge">{{item.price}} PLN</span>
+                                {{item.name}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Data preview</div>
+        <div class="panel-body">
+            <div ng-repeat="obj in shoppingList">{{obj}}</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

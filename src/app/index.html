@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Workshop">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="style/CSS/bootstrap.css" />
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+    <!-- App module -->
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+
+<div class="container" ng-controller="ShoppingList">
+    <div class="header clearfix text-center">
+        <h1 class="text-muted">Exercise Shopping List</h1>
+    </div>
+
+    <div class="row">
+        <div class="col col-xs-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">List Controls</div>
+                <div class="panel-body">
+                    <label for="purchaseStatus" class="control-label">Purchase status</label>
+                    <select class="form-control" id="purchaseStatus" ng-model="purchaseStatus.isBought">
+                        <option value="">All</option>
+                        <option value="false">To buy</option>
+                        <option value="true">Bought</option>
+                    </select>
+                </div>
+
+                <div class="panel-body">
+                    <label for="listSorting" class="control-label"><h3>Filtering</h3></label>
+                    <div id="listSorting" class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" ng-click="sortingField=''">Clear sorting</button>
+                        <button type="button" class="btn btn-default" ng-click="reorder('name')">Name</button>
+                        <button type="button" class="btn btn-default" ng-click="reorder('price')">Price</button>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <label for="listSorting" class="control-label"><h3>New item</h3></label>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="itemName" class="col-sm-2 control-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="itemName" placeholder="Name" ng-model="newItem.name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemPrice" class="col-sm-2 control-label">Price</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control" id="itemPrice" placeholder="Price" ng-model="newItem.price">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" class="btn btn-default" ng-click="addItem(newItem)">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-xs-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">Shopping List</div>
+                <div class="panel-body">
+                    <div class="col col-xs-12">
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="item in shoppingList | filter:purchaseStatus | orderBy:sortingField:desc">
+                                <input type="checkbox" ng-model="item.isBought"/>
+                                <span class="badge">{{item.price}} PLN</span>
+                                {{item.name}}
+                                <span class="text-muted" ng-click="removeItem(item)" style="cursor:pointer"> (remove)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Data preview</div>
+        <div class="panel-body">
+            <div ng-repeat="obj in shoppingList">{{obj}}</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
