@@ -24,6 +24,10 @@ angular.module('Workshop')
                     $scope.places.splice(idx, 1);
                 };
 
+                $rootScope.$on('refreshPlacesList', function () {
+                    getPlaces();
+                });
+
                 $scope.updateMode = function (place) {
                     $rootScope.$broadcast('updateMode', place);
                 };

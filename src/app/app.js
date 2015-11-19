@@ -1,5 +1,20 @@
 (function(){
-    var app = angular.module('Workshop', []);
+    var app = angular.module('Workshop', ['ui.router']);
+
+    app.config(function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/view1');
+
+        $stateProvider
+            .state('view1', {
+                url:'/view1',
+                templateUrl: 'views/view1.html'
+            })
+            .state('view2', {
+                url:'/view2',
+                templateUrl: 'views/view2.html'
+            })
+
+    });
 
     app.controller('ShoppingList', function ($scope) {
         $scope.shoppingList = [

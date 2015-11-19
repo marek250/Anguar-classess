@@ -5,7 +5,7 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>Name</th>
+                    <th style="text-align: center"><input ng-model="search.name"> <br>Name</th>
                     <th>City</th>
                     <th>Phone</th>
                     <th>Street</th>
@@ -14,7 +14,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="place in places">
+                <tr ng-repeat="place in places | filter:search.name">
+
                     <td>{{place.name}}</td>
                     <td>{{place.city}}</td>
                     <td>{{place.phone}}</td>

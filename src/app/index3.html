@@ -12,6 +12,7 @@
     <script type="text/javascript" src="js/angular.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/angular-ui-router.js"></script>
 
     <!-- App module -->
     <script type="text/javascript" src="app.js"></script>
@@ -20,6 +21,16 @@
 </head>
 <body>
 <div class="container" ng-controller="PlacesController">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a ui-sref="view1">Table</a> </li>
+                <li><a ui-sref="view2">Form</a> </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="header clearfix text-center">
         <h1 class="text-muted">Places List</h1>
     </div>
