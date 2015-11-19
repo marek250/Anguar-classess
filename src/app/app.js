@@ -13,7 +13,10 @@
                 url:'/view2',
                 templateUrl: 'views/view2.html'
             })
-
+            .state('view3', {
+                url:'/view3',
+                templateUrl: 'views/view3.html'
+            })
     });
 
     app.controller('ShoppingList', function ($scope) {

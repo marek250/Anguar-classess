@@ -18,6 +18,7 @@
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="directives/placeTable.js"></script>
     <script type="text/javascript" src="directives/placeForm.js"></script>
+    <script type="text/javascript" src="directives/loginForm.js"></script>
 </head>
 <body>
 <div class="container" ng-controller="PlacesController">
@@ -27,17 +28,13 @@
             <ul class="nav navbar-nav">
                 <li><a ui-sref="view1">Table</a> </li>
                 <li><a ui-sref="view2">Form</a> </li>
+                <li><a ui-sref="view3">Login</a> </li>
             </ul>
         </div>
     </nav>
 
-    <div class="header clearfix text-center">
-        <h1 class="text-muted">Places List</h1>
-    </div>
+    <div style="padding-top: 100px" ui-view></div>
 
-            <place-table></place-table>
-
-            <place-form></place-form>
 </div>
 </body>
 </html>
